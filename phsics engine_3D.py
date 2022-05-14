@@ -7,14 +7,14 @@ import math
 G = 9.8  # 중력 가속도
 M = float(input('공의 질량(kg) : '))  # 공 질량 입력
 H = float(input('공이 떨어지는 높이(M) : '))  # 낙하하는 높이 입력
-F = float(input('공에 처음 가하는 힘의 크기(N) : '))  # 공에 가하는 알짜힘 입력
+P = float(input('공에 처음 가하는 충격량의 크기(kgm/s) : '))  # 공에 가하는 알짜힘 입력
 Th = float(input('수직선과 이루는 각의 크기(0~180) : '))  # 각의 크기 입력
 if(Th > 90):  # 만약 각도가 90도 보다 크면
-    F_vertical = F*math.cos(math.radians(Th))  # 수직방향 힘 계산
-    F_horizon = -F*math.sin(math.radians(Th))  # 수평방향 힘 계산
+    F_vertical = P*math.cos(math.radians(Th))  # 수직방향 힘 계산
+    F_horizon = -P*math.sin(math.radians(Th))  # 수평방향 힘 계산
 else:
-    F_vertical = F*math.cos(math.radians(Th))  # 수직방향 힘 계산
-    F_horizon = F*math.sin(math.radians(Th))  # 수평방향 힘 계산
+    F_vertical = P*math.cos(math.radians(Th))  # 수직방향 힘 계산
+    F_horizon = P*math.sin(math.radians(Th))  # 수평방향 힘 계산
 v0_vertical = F_vertical/M  # 수직방향 처음 속도
 v0_horizon = F_horizon/M  # 수평방향 처음 속도
 T = (-v0_vertical+(2*G*H+v0_vertical**2)**.5)/G  # 낙하하는데 걸리는 시간 계산
@@ -27,7 +27,7 @@ speed1 = (v1_horizon**2+v1_vertical**2)**.5  # 최종 속력 계산
 print('----------결과----------')
 print('공의 질량 : %lf kg' % M)
 print('공의 처음 높이 : %lf m' % H)
-print('공에 처음 가한 알짜힘 : %lf N' % F)
+print('공에 처음 가한 충격량 : %lf N' % P)
 print('힘을 가한 방향과 수직선이 이루는 각도 : %lf°' % Th)
 print('수직 방향으로 가해진 힘 : %lf N' % F_vertical)
 print('수평 방향으로 가해진 힘 : %lf N' % F_horizon)
